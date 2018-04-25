@@ -7,20 +7,23 @@ Created on Fri Apr 20 14:17:11 2018
 
 from flask import Flask
 from flask_restful import Api
-from propAPI.resources.PropSI import PropSI
-from propAPI.resources.HAProp import HAProp
+from resources.PropSI import PropSI
+from resources.HAProp import HAProp
 
 import logging
 logger = logging.getLogger(__name__)
 
-logging.info('Initializing flask app...')
+logger.info('Initializing flask app...')
 app = Flask(__name__)
-logging.info('Done.')
-logging.info('Initializing rest API...')
+logger.info('Done.')
+logger.info('Initializing rest API...')
 api = Api(app)
 
-logging.info('Initializing rest API...')
-api.add_resource(PropSI, '/propsi')
+logger.info('Initializing rest API...')
+#api.add_resource(PropSI, '/propsi')
 api.add_resource(HAProp, '/haprop')
 
-logging.info('Done.')
+logger.info('Done.')
+
+if __name__ == '__main__':
+    app.run('0.0.0.0', port=22001)

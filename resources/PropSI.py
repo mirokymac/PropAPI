@@ -33,6 +33,10 @@ from flask_restful import Resource, reqparse, fields, marshal_with
 #==============================================================================
 
 parser = reqparse.RequestParser()
+parser.add_argument('substance',
+                    type=str,
+                    choices=(SUBS.keys()),
+                    required=True)
 parser.add_argument('output_type',
                     type=str,
                     choices=(TYPES+('A',)),
